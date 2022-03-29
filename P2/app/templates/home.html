@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title> HP </title>
+    <body>
+        <h1>
+            Welcome {{name}}
+        </h1>
+        <a href = "https://www.google.com">
+            not google
+        </a> 
+        {% if city_names %}
+        <ul>
+            {% for city in city_names %}
+            <li> {{city}} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li> {{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
